@@ -10,15 +10,11 @@ function BookList() {
       bookImage={book.image_url}
       bookTitle={book.title}
       bookCategory={book.category}
-      bookAuthor={book.author.first_name + ' ' + book.author.last_name}
+      bookAuthor={book.author.first_name + " " + book.author.last_name}
+      book={book}
     />
   ));
-  return (
-    <div className="book-list">
-      {/* <h3>Popular Now</h3> */}
-      {bookList}
-    </div>
-  );
+  return <div className="book-list">{bookList}</div>;
 }
 
 export default BookList;
