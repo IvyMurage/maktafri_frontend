@@ -17,7 +17,7 @@ function BookProvider({ children }) {
     books,
   };
 
-  return <BookContext.Provider value={books}> {children} </BookContext.Provider>;
+  return <BookContext.Provider value={value}> {children} </BookContext.Provider>;
 }
 
 export { BookProvider, BookContext };
