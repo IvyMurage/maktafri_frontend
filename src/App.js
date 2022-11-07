@@ -10,7 +10,7 @@ function App() {
       <BookProvider>
         <Routes>
           <Route
-            path="/booklist"
+            path="/"
             element={
               <>
                 <h3 id="bookList-heading">Popular Now</h3>

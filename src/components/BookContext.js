@@ -5,12 +5,20 @@ const BookContext = createContext();
 const apiUrl = "http://localhost:9292/books";
 
 function BookProvider({ children }) {
-  const [books, setBooks] = useState([]);
   const navigate = useNavigate();
+  const [books, setBooks] = useState([]);
+  const [errors, setErrors] = useState([]);
+  const [isPending, setIsPending] = useState(true);
+  
   useEffect(() => {
     fetch(`${apiUrl}`)
       .then((res) => res.json())
-      .then((books) => setBooks(books));
+      .then((books) => {
+        setBooks(books)
+        setIsPending(false)
+        setErrors([])
+      } )
+      .catch(err => setErrors([...err]))
   }, []);
 
   function handleOnClickBook(bookItem) {
@@ -25,6 +33,8 @@ function BookProvider({ children }) {
 
   const value = {
     books,
+    errors,
+    isPending,
     handleOnClickBook,
   };
 

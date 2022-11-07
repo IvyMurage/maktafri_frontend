@@ -3,7 +3,7 @@ import { BookContext } from "../BookContext";
 import BookCard from "./BookCard";
 
 function BookList() {
-  const { books } = useContext(BookContext);
+  const { books, isPending, errors } = useContext(BookContext);
   const bookList = books.map((book) => (
     <BookCard
       key={book.id}
@@ -14,7 +14,14 @@ function BookList() {
       book={book}
     />
   ));
-  return <div className="book-list">{bookList}</div>;
+  return (
+    <div className="book-list">
+      {errors.length > 0
+        ? errors.map((error) => <span className="error">{error}</span>)
+        : null}
+      {isPending ? <h2>Loading...</h2> : bookList}
+    </div>
+  );
 }
 
 export default BookList;
