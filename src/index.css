@@ -15,5 +15,33 @@
 
 body {
   background-color: var(--mint-cream);
-  
 }
+
+/* Styles for bookList */
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  grid-gap: 50px;
+  padding: 10px 10px 10px 10px;
+}
+/* End for bookList */
+
+/* Styles of Bookcard */
+.book-card {
+  background-color: var(--goldenRod);
+  border: 1px solid red;
+  width: 70%;
+  height: 600px;
+  border-radius: 10px;
+}
+
+.book-card > img {
+  display: block;
+  max-width: 100%;
+  height: 500px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+/* End of styles of BookCard */
