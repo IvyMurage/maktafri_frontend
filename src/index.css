@@ -25,23 +25,61 @@ body {
   align-items: center;
   grid-gap: 50px;
   padding: 10px 10px 10px 10px;
+  border: 1px solid red;
 }
 /* End for bookList */
 
 /* Styles of Bookcard */
 .book-card {
   background-color: var(--goldenRod);
-  border: 1px solid red;
-  width: 70%;
-  height: 600px;
+  width: 78%;
+  height: fit-content;
   border-radius: 10px;
+}
+
+.book-card > h4 {
+  padding: 5px 10px 3px 5px;
+  font-size: medium;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.book-card > p {
+  padding: 3px 5px 3px 5px;
+  font-weight: lighter;
+  font-size: 12px;
+}
+.book-card .fa-star {
+  padding: 5px 10px 5px 10px;
 }
 
 .book-card > img {
   display: block;
-  max-width: 100%;
-  height: 500px;
+  width: 320px;
+  height: 420px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 /* End of styles of BookCard */
+
+/* Styles of fa-star */
+.fa-star {
+  color: var(--kobe);
+}
+/* End of fa-star */
+@media only screen and (max-width: 800px) {
+  .book-list {
+    display: block;
+  }
+
+  .book-card {
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 80px;
+    height: fit-content;
+  }
+
+  .book-card > img {
+    width: 100%;
+  }
+}

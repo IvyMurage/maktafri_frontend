@@ -9,7 +9,7 @@ function BookCard({ bookImage, bookTitle, bookAuthor, bookCategory }) {
       <h4> {bookTitle}</h4>
       <p>{bookCategory}</p>
       <p>{bookAuthor}</p>
-      <FontAwesomeIcon icon={faStar} />
+      <FontAwesomeIcon icon={faStar} className="fa-star"/>
     </div>
   );
 }

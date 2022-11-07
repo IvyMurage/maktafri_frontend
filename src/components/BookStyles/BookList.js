@@ -9,8 +9,8 @@ function BookList() {
       key={book.id}
       bookImage={book.image_url}
       bookTitle={book.title}
-      bookCategory={book.categroy}
-      bookAuthor={book.author.first_name}
+      bookCategory={book.category}
+      bookAuthor={book.author.first_name + ' ' + book.author.last_name}
     />
   ));
   return (
