@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './Cards.css';
 
 function BookPage(props){
     const [book, setBook] = useState ([]);

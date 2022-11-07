@@ -25,7 +25,19 @@ body {
   align-items: center;
   grid-gap: 50px;
   padding: 10px 10px 10px 10px;
-  border: 1px solid red;
+}
+
+#bookList-heading {
+  text-align: center;
+  position: relative;
+}
+#bookList-heading::after {
+  content: "";
+  border-bottom: 2px solid var(--kobe);
+  position: absolute;
+  width: 14%;
+  left: 43%;
+  top: 35px;
 }
 /* End for bookList */
 
@@ -42,6 +54,7 @@ body {
   font-size: medium;
   font-weight: bold;
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 .book-card > p {
