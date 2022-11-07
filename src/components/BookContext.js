@@ -13,7 +13,11 @@ function BookProvider({ children }) {
 
   console.log("This are the generated books", books);
 
-  return <BookContext.Provider value={null}> {children} </BookContext.Provider>;
+  const value = {
+    books,
+  };
+
+  return <BookContext.Provider value={books}> {children} </BookContext.Provider>;
 }
 
 export { BookProvider, BookContext };
