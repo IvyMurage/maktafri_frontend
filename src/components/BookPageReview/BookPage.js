@@ -8,7 +8,7 @@ function BookPage(props){
         fetch("http://localhost:9292/books")
             .then((response) => response.json())
             .then((data) => setBook(data))
-            .catch(console.log);
+            .catch(console.error);
     }, [setBook]);
 
     return(

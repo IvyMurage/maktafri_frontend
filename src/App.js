@@ -1,9 +1,12 @@
-import Header from './components/header/Header';
+import { BookProvider } from "./components/BookContext";
+import BookList from "./components/BookStyles/BookList";
 
 function App() {
   return (
     <div className="App">
-     <Header/>
+      <BookProvider>
+        <BookList />
+      </BookProvider>
     </div>
   );
 }
