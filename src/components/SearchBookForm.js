@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { BookContext } from "./BookContext";
 
 function Search() {
+  const { onHandleSearchChange, search } = useContext(BookContext);
   return (
     <StyledForm action="/">
-      <input type="search" placeholder="Search by title"></input>
-      <button type="submit">
-        <FontAwesomeIcon icon={faSearch} />
-      </button>
+      <input
+        type="search"
+        placeholder="Search by title"
+        value={search}
+        onChange={onHandleSearchChange}
+      ></input>
+
+      <FontAwesomeIcon icon={faSearch} />
     </StyledForm>
   );
 }
 
-const StyledForm = styled.div`
+const StyledForm = styled.form`
   display: flex;
   align-items: center;
   border: 2px solid #bbb8b2;

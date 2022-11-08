@@ -22,11 +22,10 @@ function App() {
               </>
             }
           />
-          <Route path="/booklist/:id" element={<BookPage />} />
+          {/* <Route path="/booklist/:id" element={<BookPage/>} /> */}
         </Routes>
       </BookProvider>
-      <ReviewsCard />
-      <Footer />
+     
     </div>
   );
 }

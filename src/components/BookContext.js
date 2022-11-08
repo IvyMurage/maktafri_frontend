@@ -9,16 +9,17 @@ function BookProvider({ children }) {
   const [books, setBooks] = useState([]);
   const [errors, setErrors] = useState([]);
   const [isPending, setIsPending] = useState(true);
-  
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     fetch(`${apiUrl}`)
       .then((res) => res.json())
       .then((books) => {
-        setBooks(books)
-        setIsPending(false)
-        setErrors([])
-      } )
-      .catch(err => setErrors([...err]))
+        setBooks(books);
+        setIsPending(false);
+        setErrors([]);
+      })
+      .catch((err) => setErrors([...err]));
   }, []);
 
   function handleOnClickBook(bookItem) {
@@ -29,13 +30,21 @@ function BookProvider({ children }) {
     navigate(`/booklist/${bookItem.id}}`);
   }
 
-  console.log("This are the generated books", books);
+  function onHandleSearchChange(event) {
+    const value = event.target.value;
+    setSearch(value)
+    console.log(search);
+  }
+
+  const bookItems = books.filter(book => book.title.includes(search))
 
   const value = {
-    books,
+    bookItems,
     errors,
     isPending,
+    search,
     handleOnClickBook,
+    onHandleSearchChange,
   };
 
   return (

@@ -36,12 +36,13 @@ function Header() {
 }
 
 const StyledHeader = styled.header`
-  width: 100vw;
+  width: 100%;
+  overflow-y: hidden;
   height: 15vh;
   display: flex;
   align-items: center;
   nav {
-    width: 90vw;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;

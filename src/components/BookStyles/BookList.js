@@ -3,8 +3,8 @@ import { BookContext } from "../BookContext";
 import BookCard from "./BookCard";
 
 function BookList() {
-  const { books, isPending, errors } = useContext(BookContext);
-  const bookList = books.map((book) => (
+  const { bookItems, isPending, errors } = useContext(BookContext);
+  const bookList = bookItems.map((book) => (
     <BookCard
       key={book.id}
       bookImage={book.image_url}
