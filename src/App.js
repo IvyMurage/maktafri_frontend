@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { BookProvider } from "./components/BookContext";
 import BookPage from "./components/BookPageReview/BookPage";
 import BookList from "./components/BookStyles/BookList";
+import ReviewsCard from "./components/ReviewsCard";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/booklist/:id" element={<BookPage />} />
         </Routes>
       </BookProvider>
+      <ReviewsCard/>
     </div>
   );
 }
