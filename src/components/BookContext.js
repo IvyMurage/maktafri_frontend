@@ -10,7 +10,9 @@ function BookProvider({ children }) {
   const [errors, setErrors] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [search, setSearch] = useState("");
-
+  const [bookId, setBookId] = useState(null)
+  const [book, setBook] = useState ([]);
+  
   useEffect(() => {
     fetch(`${apiUrl}`)
       .then((res) => res.json())
@@ -22,7 +24,18 @@ function BookProvider({ children }) {
       .catch((err) => setErrors([...err]));
   }, []);
 
+  useEffect(() => {
+    fetch(`http://localhost:9292/books/${bookId}`)
+        .then((response) => response.json())
+        // .then((data) => console.log(data))
+        .then((data) => setBook(data))
+        .catch(console.log);
+}, [bookId]);
+
+console.log(book)
+
   function handleOnClickBook(bookItem) {
+    setBookId(bookItem.id)
     console.log(
       "This book has been clicked and this is the bookItem",
       bookItem
@@ -40,6 +53,7 @@ function BookProvider({ children }) {
 
   const value = {
     bookItems,
+    book,
     errors,
     isPending,
     search,

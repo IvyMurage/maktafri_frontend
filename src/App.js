@@ -26,6 +26,8 @@ function App() {
         </Routes>
       </BookProvider>
      
+      {/* <ReviewsCard /> */}
+      <Footer />
     </div>
   );
 }
