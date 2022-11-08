@@ -25,7 +25,7 @@ function App() {
           <Route path="/booklist/:id" element={<BookPage />} />
         </Routes>
       </BookProvider>
-      <ReviewsCard />
+      {/* <ReviewsCard /> */}
       <Footer />
     </div>
   );
