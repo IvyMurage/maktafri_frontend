@@ -22,7 +22,6 @@ function Footer() {
 
 const StyledFooter = styled.footer`
   height: 100px;
-  position: absolute;
   width: 100vw;
   background: #e6af2e;
   bottom: 0;

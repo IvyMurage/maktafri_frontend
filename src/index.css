@@ -30,6 +30,7 @@ body {
 #bookList-heading {
   text-align: center;
   position: relative;
+  margin-top: 100px;
 }
 #bookList-heading::after {
   content: "";
@@ -56,11 +57,9 @@ body {
   text-transform: capitalize;
   cursor: pointer;
 }
-.book-card > h4:hover{
+.book-card > h4:hover {
   border-bottom: 2px solid var(--kobe);
 }
-
-
 
 .book-card > p {
   padding: 3px 5px 3px 5px;
