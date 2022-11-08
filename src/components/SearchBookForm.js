@@ -1,36 +1,43 @@
-<<<<<<< HEAD
-=======
-import React, { useState } from "react";
-import axios from "axios";
-
+import React from "react";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 function Search() {
-
-  const [book, setBook] = useState("");
-  const [result, setResult] = useState([]);
-
-  function handleChange(e){
-
-    const book = e.target.value;
-    setBook(book)
-  }
-
-  function handleSubmit(e){
-    e.preventDefault()
-    axios.get("http://localhost:9292/")
-    .then(data => {
-      console.log(data.items)
-    })
-
-  }
   return (
-    <form onSubmit={handleSubmit}id="search-form">
-      <input type="text" onChange={handleChange} placeholder="Search" value="" />
-      <div>
-        <button type="submit">Search</button>
-      </div>
-    </form>
+    <StyledForm action="/">
+      <input type="search" placeholder="Search by title"></input>
+      <button type="submit">
+        <FontAwesomeIcon icon={faSearch} />
+      </button>
+    </StyledForm>
   );
 }
+
+const StyledForm = styled.div`
+  display: flex;
+  align-items: center;
+  border: 2px solid #bbb8b2;
+  border-radius: 10px;
+  padding: 12px;
+  flex: 1;
+  margin: 0 10%;
+  input {
+    border: 0;
+    background-color: transparent;
+    width: 98%;
+    line-height: 1.5;
+    align-content: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+`;
+
 export default Search;
->>>>>>> 36c78a6 (search section init commit)
