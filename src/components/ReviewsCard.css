@@ -1,0 +1,37 @@
+
+h1{
+    text-align: center;
+}
+.item{
+    min-height: 10rem;
+    min-width: 20rem;
+    padding: 40px;
+    margin-right: 3rem;
+    border-style: solid;
+    border-radius: 2rem;
+    background-color: #eed497;
+  }
+  
+  .inner-carousel{
+    display:flex;
+  }
+  
+  .carousel{
+    cursor:grab;
+    overflow: hidden;
+    background-color: #aed8c5;
+  }
+  
+  .btn-container{
+    display:grid;
+  }
+
+  .del-btn{
+    background-color: #95290b;;
+    border-radius: 1rem;
+  }
+  
+  .upd-btn{
+    background-color: #a18b20;
+    border-radius: 1rem;
+  }

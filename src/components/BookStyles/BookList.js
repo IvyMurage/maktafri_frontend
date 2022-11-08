@@ -3,20 +3,23 @@ import { BookContext } from "../BookContext";
 import BookCard from "./BookCard";
 
 function BookList() {
-  const { books } = useContext(BookContext);
-  const bookList = books.map((book) => (
+  const { bookItems, isPending, errors } = useContext(BookContext);
+  const bookList = bookItems.map((book) => (
     <BookCard
       key={book.id}
       bookImage={book.image_url}
       bookTitle={book.title}
       bookCategory={book.category}
-      bookAuthor={book.author.first_name + ' ' + book.author.last_name}
+      bookAuthor={book.author.first_name + " " + book.author.last_name}
+      book={book}
     />
   ));
   return (
     <div className="book-list">
-      {/* <h3>Popular Now</h3> */}
-      {bookList}
+      {errors.length > 0
+        ? errors.map((error) => <span className="error">{error}</span>)
+        : null}
+      {isPending ? <h2>Loading...</h2> : bookList}
     </div>
   );
 }
