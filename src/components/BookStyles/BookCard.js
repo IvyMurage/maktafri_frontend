@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { BookContext } from "../BookContext";
 
-
-function BookCard({ bookImage, bookTitle, bookAuthor, bookCategory, book }) {
+function BookCard({ bookImage, bookTitle, bookAuthor, bookCategory, bookReview, book }) {
   const { handleOnClickBook } = useContext(BookContext);
+  console.log(bookReview)
   return (
     <div className="book-card">
       <img src={bookImage} alt={bookTitle} />

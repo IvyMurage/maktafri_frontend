@@ -10,9 +10,9 @@ function BookProvider({ children }) {
   const [errors, setErrors] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [search, setSearch] = useState("");
-  const [bookId, setBookId] = useState(null)
-  const [book, setBook] = useState ([]);
-  
+  const [bookId, setBookId] = useState(1);
+  const [book, setBook] = useState([]);
+
   useEffect(() => {
     fetch(`${apiUrl}`)
       .then((res) => res.json())
@@ -26,30 +26,25 @@ function BookProvider({ children }) {
 
   useEffect(() => {
     fetch(`http://localhost:9292/books/${bookId}`)
-        .then((response) => response.json())
-        // .then((data) => console.log(data))
-        .then((data) => setBook(data))
-        .catch(console.log);
-}, [bookId]);
-
-console.log(book)
+      .then((response) => response.json())
+      .then((data) => setBook(data))
+      .catch((err) => setErrors([...err]));
+  }, [bookId]);
 
   function handleOnClickBook(bookItem) {
-    setBookId(bookItem.id)
-    console.log(
-      "This book has been clicked and this is the bookItem",
-      bookItem
-    );
+    setBookId(bookItem.id);
     navigate(`/booklist/${bookItem.id}}`);
+
   }
+
+  console.log(book.reviews)
 
   function onHandleSearchChange(event) {
     const value = event.target.value;
-    setSearch(value)
-    console.log(search);
+    setSearch(value);
   }
 
-  const bookItems = books.filter(book => book.title.includes(search))
+  const bookItems = books.filter((book) => book.title.includes(search));
 
   const value = {
     bookItems,

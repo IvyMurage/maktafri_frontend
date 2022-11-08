@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import {
+  faTwitter,
+  faLinkedin,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 import Logo from "./header/Logo";
 
 function Footer() {
@@ -13,16 +17,15 @@ function Footer() {
           <FontAwesomeIcon className="icon" icon={faInstagram} size="xl" />
           <FontAwesomeIcon className="icon" icon={faTwitter} size="xl" />
         </div>
-        <div className="copy">Copyright &copy; 2022</div>
-        <Logo />
+        <div className="copy"> Copyright & copy; 2022 </div> <Logo />
       </div>
     </StyledFooter>
   );
 }
 
 const StyledFooter = styled.footer`
-  height: 100px;
-  width: 100vw;
+  height: 60px;
+  width: 100%;
   background: #e6af2e;
   bottom: 0;
   .footer {

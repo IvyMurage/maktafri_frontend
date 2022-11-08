@@ -12,6 +12,8 @@ function BookList() {
       bookCategory={book.category}
       bookAuthor={book.author.first_name + " " + book.author.last_name}
       book={book}
+      bookReview ={book.review}
+    
     />
   ));
   return (
