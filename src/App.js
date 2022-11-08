@@ -5,7 +5,7 @@ import BookPage from "./components/BookPageReview/BookPage";
 import BookList from "./components/BookStyles/BookList";
 import Footer from "./components/Footer";
 import Header from "./components/header/Header";
-import ReviewsCard from "./components/ReviewsCard";
+
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
               </>
             }
           />
-          {/* <Route path="/booklist/:id" element={<BookPage/>} /> */}
+          <Route path="/booklist/:id" element={<BookPage/>} />
         </Routes>
       </BookProvider>
      

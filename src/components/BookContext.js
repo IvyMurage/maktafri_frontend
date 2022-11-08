@@ -33,6 +33,7 @@ function BookProvider({ children }) {
 }, [bookId]);
 
 console.log(book)
+console.log(book.reviews)
 
   function handleOnClickBook(bookItem) {
     setBookId(bookItem.id)

@@ -1,0 +1,21 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css");
+
+.form-box{
+    box-sizing: border-box;
+    position: absolute;
+    width: 1362px;
+    height: 754px;
+    left: 74px;
+    top: 117px;
+    border: 1px solid #BBB8B2;
+    border-radius: 15px;
+}
+
+#messageButton {
+    display: block;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+
