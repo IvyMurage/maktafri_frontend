@@ -1,34 +1,53 @@
-#book-image{
-    position: absolute;
+#book-image > img{
+    position: relative;
+    display: grid;
     width: 544px;
-    height: 860px;
-    left: 23px;
-    top: 369px;
-    background: url("https://robohash.org/laborepariaturrepellat.png?size=300x300&set=set1");
+    height: 780px;
+    left: 25px;
+    top: 10px;
     border-radius: 15px 0px 0px 15px;
 }
 
 #book-body{
     position: absolute;
-    width: 862px;
-    height: 710px;
+    width: 730px;
+    height: 640px;
     left: 612px;
-    top: 395px;
+    /* top: 395px; */
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 25px;
     line-height: 38px;
+    color: black;
+}
+
+#book-body > h1{
+    text-align: left;
     color: #95290B;
+    font-weight: 700;
+}
+#book-body > h2{
+    text-align: left;
+    margin-left: auto;
+    font-weight: 700;
+    line-height: 36px;
+}
+
+#book-body > p{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 36px;
+    text-align: justify;
 }
 
 #review-btn{
     position: absolute;
     color: white;
-    width: 256px;
+    width: 200px;
     height: 68px;
-    left: 620px;
-    top: 1123px;
+    left: 722px;
+    top: 650px;
     background: #95290B;
     border-radius: 20px;
 }
@@ -36,10 +55,14 @@
 #favourite-btn{
     position: absolute;
     color: white;
-    width: 256px;
+    width: 100px;
     height: 68px;
-    left: 1075px;
-    top: 1123px;
+    left: 1002px;
+    top: 650px;
     background: #95290B;
     border-radius: 20px;
+}
+
+.book-buttons{
+    display:inline-block;
 }

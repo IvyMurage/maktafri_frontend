@@ -23,6 +23,7 @@ body {
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
   align-items: center;
+  margin-top: 30px;
   grid-gap: 30px;
   padding: 10px 10px 10px 10px;
 }
