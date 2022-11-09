@@ -39,7 +39,7 @@ select {
   border-radius: 10px;
 }
 select option {
-    font-size: 30px;
+    font-size: 20px;
     font-family: "Poppins";
 }
 textarea {

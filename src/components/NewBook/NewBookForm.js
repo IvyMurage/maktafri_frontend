@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './NewBook.css';
+import "./NewBook.css";
 
 function NewBook() {
   const [data, setData] = useState({
@@ -58,6 +58,7 @@ function NewBook() {
           onChange={(e) => handleChange(e)}
           value={data.category}
         >
+          <option></option>
           <option onChange={(e) => handleChange(e)} value="  Adventure stories">
             Adventure stories
           </option>
@@ -103,7 +104,7 @@ function NewBook() {
       <label className="label">
         Image_url
         <input
-        style= {{width:"800px"}}
+          style={{ width: "800px" }}
           type="img"
           onChange={(e) => handleChange(e)}
           id="image_url"
@@ -115,13 +116,13 @@ function NewBook() {
       <br />
       <label className="label">
         Description
-      <textarea
-        onChange={(e) => handleChange(e)}
-        name="description"
-        id="description"
-        cols="50"
-        rows="4"
-      ></textarea>
+        <textarea
+          onChange={(e) => handleChange(e)}
+          name="description"
+          id="description"
+          cols="50"
+          rows="4"
+        ></textarea>
       </label>
       <br />
       <br />
