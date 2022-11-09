@@ -6,6 +6,7 @@ import BookList from "./components/BookStyles/BookList";
 import Footer from "./components/Footer";
 import Header from "./components/header/Header";
 import HeroSection from "./components/HeroSection";
+import Favorites from "./components/FavoriteBooks";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             }
           />
           <Route path="/booklist/:id" element={<BookPage />} />
+          <Route path="/favourites" element={<Favorites />} />
         </Routes>
       </BookProvider>
       <Footer />

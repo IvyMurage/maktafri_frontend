@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function HeroSection() {
   return (
@@ -14,9 +13,7 @@ function HeroSection() {
           for you.
         </p>
 
-        <Link>
-          <button className="view-btn">View all</button>
-        </Link>
+        <button className="view-btn">View all</button>
       </div>
       <div className="hero-section-image">
         <img src="./images/415-dbpXVmL.jpg" alt="" />

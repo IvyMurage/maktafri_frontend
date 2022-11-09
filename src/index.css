@@ -19,10 +19,53 @@ body {
 }
 /* end of general styles */
 
-.hero-section-container{
-  border: 1px solid red;
+.hero-section-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--goldenRod);
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 15px;
+  margin-top: 100px;
+}
+.hero-section-container > div {
+  flex: 50%;
+}
+.hero-section-text {
+  margin-left: 100px;
 }
 
+.hero-section-text > h2 {
+  color: var(--kobe);
+  text-align: left;
+  font-weight: bold;
+  line-height: 3;
+}
+
+.hero-section-text > p {
+  font-weight: 600;
+}
+.view-btn {
+  border-style: none;
+  padding: 10px 40px;
+  background-color: var(--kobe);
+  border-radius: 10px;
+  color: var(--mint-cream);
+  font-weight: 600;
+}
+
+.hero-section-image {
+  width: 30%;
+}
+
+.hero-section-image > img {
+  width: 50%;
+  width: 300px;
+  height: 400px;
+  display: block;
+  margin: 0 auto;
+}
 /* Styles for bookList */
 .book-list {
   display: grid;

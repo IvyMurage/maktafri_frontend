@@ -2,27 +2,31 @@ import React, { useContext, useEffect, useState } from "react";
 import { BookContext } from "../BookContext";
 import "./BookPage.css";
 import ReviewsCard from "../ReviewsCard";
-import BookReviewForm from "./BookReviewForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 function BookPage() {
-  const { bookId } = useContext(BookContext);
+  const { bookId, favorites, addToFavorites, removeFromFavorites } =
+    useContext(BookContext);
   const [book, setBook] = useState([]);
   const [bookReviews, setBookReviews] = useState([]);
   const [bookAuthor, setBookAuthor] = useState({});
 
+  const favoritesChecker = (id) => {
+    const boolean = favorites.some((book) => book.id === id);
+    return boolean;
+  };
+
   useEffect(() => {
     fetch(`http://localhost:9292/books/${bookId}`)
       .then((response) => response.json())
-      // .then((data) => console.log(data))
       .then((data) => {
         setBook(data);
         setBookReviews(data.reviews);
         setBookAuthor(data.author);
       })
-      .catch(console.log);
+      .catch(err => console.log(err))
   }, [bookId]);
 
   return (
@@ -43,14 +47,27 @@ function BookPage() {
               Review
               <FontAwesomeIcon icon={faPenToSquare} className="btn-icon" />
             </button>
-            <button
-              type="button"
-              id="favourite-btn"
-              className="btn btn-primary"
-            >
-              Favourite
-              <FontAwesomeIcon icon={faHeart} className="btn-icon" />
-            </button>
+            {favoritesChecker(book.id) ? (
+              <button
+                type="button"
+                id="favourite-btn"
+                className="btn btn-primary"
+                onClick={() => removeFromFavorites(book.id)}
+              >
+                Remove From Favorites
+                <FontAwesomeIcon icon={faHeart} className="btn-icon" />
+              </button>
+            ) : (
+              <button
+                type="button"
+                id="favourite-btn"
+                className="btn btn-primary"
+                onClick={() => addToFavorites(book)}
+              >
+                Favourite
+                <FontAwesomeIcon icon={faHeart} className="btn-icon" />
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -65,11 +82,6 @@ function BookPage() {
           />
         ))}
       </div>
-      {/* {
-        <div className="review-form">
-          <BookReviewForm />
-        </div>
-      } */}
     </>
   );
 }

@@ -10,10 +10,9 @@ function BookList() {
       bookImage={book.image_url}
       bookTitle={book.title}
       bookCategory={book.category}
-      bookAuthor={book.author.first_name + " " + book.author.last_name}
+      bookAuthor={book.author.name}
       book={book}
     />
-
   ));
   return (
     <div className="book-list">

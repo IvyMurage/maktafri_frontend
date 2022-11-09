@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BookContext = createContext();
+const BookContext = createContext({});
 const apiUrl = "http://localhost:9292/books";
 
 function BookProvider({ children }) {
@@ -11,6 +11,23 @@ function BookProvider({ children }) {
   const [isPending, setIsPending] = useState(true);
   const [search, setSearch] = useState("");
   const [bookId, setBookId] = useState(1);
+  const [favorites, setFavorites] = useState([]);
+  const [bookFavourite, setBookFavourites] = useState({})
+
+  function addToFavorites(book) {
+    setBookFavourites(prevState => prevState = book);
+    setFavorites((prevFavorites) => (prevFavorites = [...prevFavorites, bookFavourite]));
+
+    console.log(favorites);
+    console.log(bookFavourite);
+  }
+
+  function removeFromFavorites(id) {
+    const oldFavorites = [...favorites];
+    const newFavorites = oldFavorites.filter((book) => book.id !== id);
+    setFavorites(newFavorites);
+  }
+
 
   useEffect(() => {
     fetch(`${apiUrl}`)
@@ -43,6 +60,9 @@ function BookProvider({ children }) {
     search,
     handleOnClickBook,
     onHandleSearchChange,
+    favorites,
+    addToFavorites,
+    removeFromFavorites,
   };
 
   return (
