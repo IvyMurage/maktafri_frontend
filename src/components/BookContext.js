@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 const BookContext = createContext();
 const apiUrl = "http://localhost:9292/books";
 
@@ -12,22 +13,28 @@ function BookProvider({ children }) {
   const [search, setSearch] = useState("");
   const [bookId, setBookId] = useState(null);
 
-  const [favorites, setFavorites] = useState([]);
+  const localFavouritesJson = localStorage.getItem("favourites")
+  const localFavourites = localFavouritesJson? JSON.parse(localFavouritesJson): []
+  const [favorites, setFavorites] = useState(localFavourites);
+
 
   function addToFavorites(book){
     const oldFavorites = [...favorites];
     const newFavorites = oldFavorites.concat(book);
-    setFavorites((prevFavorites)=> prevFavorites= newFavorites);
-
-    console.log(favorites);
-    console.log(book);
+    setFavorites(newFavorites);
+    localStorage.setItem("favourites",JSON.stringify(newFavorites))
+    
+    
     console.log(newFavorites);
   };
+
+ 
 
   const removeFromFavorites = (id) => {
     const oldFavorites = [...favorites];
     const newFavorites = oldFavorites.filter((book) => book.id !== id);
     setFavorites(newFavorites);
+    localStorage.setItem("favourites",JSON.stringify(newFavorites))
   };
 
   useEffect(() => {
@@ -53,6 +60,8 @@ function BookProvider({ children }) {
 
   const bookItems = books.filter((book) => book.title.includes(search));
 
+  
+
   const value = {
     bookId,
     bookItems,
@@ -67,7 +76,7 @@ function BookProvider({ children }) {
   };
 
   return (
-    <BookContext.Provider value={value}> {children} </BookContext.Provider>
+    <BookContext.Provider value={value }> {children} </BookContext.Provider>
   );
 }
 

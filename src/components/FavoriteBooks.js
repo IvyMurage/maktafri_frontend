@@ -1,15 +1,14 @@
-import React, { useContext }from "react";
+import React, { useContext } from "react";
 import "../App";
-import { BookContext } from './BookContext'
-
+import { BookContext } from "./BookContext";
 
 function Favorites() {
-  const { favorites, addToFavorites, removeFromFavorites } =
+  const { favorites, addToFavorites, removeFromFavorites} =
     useContext(BookContext);
 
   console.log("Favorite Books: ", favorites);
 
-  function favoritesChecker(id){
+  const favoritesChecker = (id) => {
     const boolean = favorites.some((book) => book.id === id);
     return boolean;
   };
@@ -22,7 +21,7 @@ function Favorites() {
             <h2>{book.title}</h2>
             <h3>Written by: {book.authors}</h3>
             <div>
-              
+              {" "}
               <img src={book.image_url} alt="#"></img>
             </div>
             <div>
