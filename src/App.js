@@ -12,12 +12,13 @@ function App() {
     <div className="App">
       <BookProvider>
         <Header />
-        <HeroSection/>
+
         <Routes>
           <Route
             path="/"
             element={
               <>
+                <HeroSection />
                 <h3 id="bookList-heading">Popular Now</h3>
                 <BookList />
               </>

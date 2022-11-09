@@ -5,6 +5,7 @@
   --kobe: #95290b;
 }
 
+/* start of general styles */
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -15,6 +16,11 @@
 
 body {
   background-color: var(--mint-cream);
+}
+/* end of general styles */
+
+.hero-section-container{
+  border: 1px solid red;
 }
 
 /* Styles for bookList */
