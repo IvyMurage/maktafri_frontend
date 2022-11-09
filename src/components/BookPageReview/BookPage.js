@@ -25,6 +25,9 @@ function BookPage() {
       .catch(console.log);
   }, [bookId]);
 
+  // console.log(bookReviews[0].user_id)
+  // console.log(bookReviews.reviews.user_id)
+
   return (
     <>
       <div className="book-row">
@@ -62,14 +65,15 @@ function BookPage() {
             key={review.id}
             starRating={review.star_rating}
             comments={review.comment}
+            // user={review.user}
           />
         ))}
       </div>
-      {/* {
+      {
         <div className="review-form">
           <BookReviewForm />
         </div>
-      } */}
+      }
     </>
   );
 }

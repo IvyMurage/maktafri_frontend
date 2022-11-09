@@ -3,9 +3,11 @@ import './BookReviewForm.css';
 
 function BookReviewForm (){
     const [review, setReview] = useState({
-        username: "",
+        user_name: "",
+        email: "",
         comment: "",
-        star_rating: ""
+        book_id: 3,
+        star_rating: 1
     });
 
     function handleSubmit(event){
@@ -28,15 +30,18 @@ function BookReviewForm (){
 
     return(
         <React.Fragment>
-            <div className = "form-group" onSubmit = {handleSubmit}>
-                <label className = "row-one">Username</label>
-                <input onChange={handleChange} value = {review.username} type="text" className="form-control" id="username" aria-describedby="username" placeholder='Enter your username'/>
+            <div className = "title">Add Review</div>
+            <form className = "form-group" onSubmit = {handleSubmit}>
+                <label className = "">Username</label>
+                <input onChange={handleChange} value = {review.user_name} type="text" className="form-control" id="user_name" aria-describedby="user_name" placeholder='Enter your username'/>
+                <label className = "">Email</label>
+                <input onChange={handleChange} value = {review.email} type="email" className="form-control" id="email" aria-describedby="email" placeholder='Enter your email address'/>
                 <label className = "">Star Rating</label>
-                <input onChange={handleChange} value = {review.star_rating} type="text" className="form-control" id="rating" aria-describedby="rating" placeholder='Enter the book rating (1-5)'/>
+                <input onChange={handleChange} value = {review.star_rating} type="number" className="form-control" id="star_rating" aria-describedby="number" placeholder='Enter your star rating (1-5)'/>
                 <label className = "">Comment</label>
-                <textarea onChange={handleChange} value={review.comment} className="form-control" id="description" rows="3" placeholder='Enter the book description'></textarea>
+                <textarea onChange={handleChange} value={review.comment} className="form-control" type="text" id="comment" rows="3" placeholder='Enter your comment'></textarea>
                 <button id = "messageButton">Add Review</button>
-            </div>
+            </form>
         </React.Fragment>
     )
 
