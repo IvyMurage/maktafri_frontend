@@ -22,19 +22,20 @@ function NewBook() {
     fetch("http://localhost:9292/books", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      BODY: JSON.stringify({
+      body: JSON.stringify({
         title: data.title,
         category: data.category,
         image_url: data.image_url,
         published_date: data.published_date,
         author: data.author,
+        description: data.description,
       }),
     })
       .then((res) => {
         res.json();
       })
       .then((res) => {
-        console.log(data);
+        console.log(res);
       });
   }
 
