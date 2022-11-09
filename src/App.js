@@ -5,12 +5,14 @@ import BookPage from "./components/BookPageReview/BookPage";
 import BookList from "./components/BookStyles/BookList";
 import Footer from "./components/Footer";
 import Header from "./components/header/Header";
+import HeroSection from "./components/HeroSection";
 
 function App() {
   return (
     <div className="App">
       <BookProvider>
         <Header />
+        <HeroSection/>
         <Routes>
           <Route
             path="/"

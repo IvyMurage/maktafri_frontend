@@ -28,11 +28,11 @@ function BookReviewForm (){
 
     return(
         <React.Fragment>
-            <div classname = "form-group" onSubmit = {handleSubmit}>
+            <div className = "form-group" onSubmit = {handleSubmit}>
                 <label className = "row-one">Username</label>
-                <input value = {review.username} type="text" className="form-control" id="username" aria-describedby="username" placeholder='Enter your username'/>
+                <input onChange={handleChange} value = {review.username} type="text" className="form-control" id="username" aria-describedby="username" placeholder='Enter your username'/>
                 <label className = "">Star Rating</label>
-                <input value = {review.star_rating} type="text" className="form-control" id="rating" aria-describedby="rating" placeholder='Enter the book rating (1-5)'/>
+                <input onChange={handleChange} value = {review.star_rating} type="text" className="form-control" id="rating" aria-describedby="rating" placeholder='Enter the book rating (1-5)'/>
                 <label className = "">Comment</label>
                 <textarea onChange={handleChange} value={review.comment} className="form-control" id="description" rows="3" placeholder='Enter the book description'></textarea>
                 <button id = "messageButton">Add Review</button>
