@@ -64,6 +64,7 @@ button {
   text-align: center;
   margin-left: 45%;
   border-style: none;
+  padding: 10px, 30px;
 }
 .addbook {
   font-family: "Poppins";
