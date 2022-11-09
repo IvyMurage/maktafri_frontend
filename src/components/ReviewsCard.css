@@ -1,5 +1,5 @@
 
-h1{
+h2{
     text-align: center;
 }
 .item{
@@ -27,7 +27,7 @@ h1{
   }
 
   .del-btn{
-    background-color: #95290b;;
+    background-color: #95290b;
     border-radius: 1rem;
   }
   

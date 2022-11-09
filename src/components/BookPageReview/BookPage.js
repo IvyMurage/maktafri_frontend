@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BookContext } from "../BookContext";
 import "./BookPage.css";
-import ReviewsCard from "../ReviewsCard";
+// import ReviewsCard from "../ReviewsCard";
 
 function BookPage() {
   const { bookId } = useContext(BookContext);
@@ -41,14 +41,14 @@ function BookPage() {
           <button id="review-btn">Review</button>
           <button id="favourite-btn">Favourite</button>
         </div>
-        {bookReviews.map((review) => (
+        {/* {bookReviews.map((review) => (
           <ReviewsCard
             key={review.id}
             starRating={review.star_rating}
-            comments={review.comment}
-            // user={review.user.user_name}
+            comments={review.comment} */}
+            {/* // user={review.user.user_name}
           />
-        ))}
+        ))} */}
 
         {/* <BookReviewForm /> */}
       </div>
