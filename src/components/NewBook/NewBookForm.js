@@ -135,7 +135,7 @@ function NewBook() {
       </label>
       <br />
       <br />
-      <button className="addbook">Add a Book </button>
+      <button id="button1" className="addbook">Add a Book </button>
     </form>
   );
 }
