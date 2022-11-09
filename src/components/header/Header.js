@@ -82,5 +82,21 @@ const StyledHeader = styled.header`
   .logo {
     display: flex;
   }
+  @media (max-width: 576px) {
+    nav {
+      width: 95%;
+      h1,
+      span {
+        font-size: 24px;
+      }
+      .logo svg {
+        height: 30px;
+        width: 30px;
+      }
+      .links {
+        display: none;
+      }
+    }
+  }
 `;
 export default Header;
