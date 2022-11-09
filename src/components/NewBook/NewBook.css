@@ -1,0 +1,72 @@
+form {
+  width: 1300px;
+  height: 800px;
+  top: 80px;
+  left: 250px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  border: 1px solid #bbb8b2;
+  position: absolute;
+}
+.label {
+  width: 80px;
+  height: 25px;
+  left: 162px;
+  top: 172px;
+  color: #e6af2e;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  margin-left: 150px;
+  margin-top: 5%;
+  margin-right: 30%;
+}
+input #image_url {
+    width: 100%;
+}
+
+input,
+select {
+  width: 420px;
+  height: 72px;
+  left: 162px;
+  top: 219px;
+  border-color: #d9d9d9;
+  background: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+}
+select option {
+    font-size: 30px;
+    font-family: "Poppins";
+}
+textarea {
+  border-color: #d9d9d9;
+  background: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+}
+button {
+  width: 256px;
+  height: 68px;
+  left: 614px;
+  top: 771px;
+  background: #95290b;
+  border-radius: 20px;
+  width: 170px;
+  left: 650px;
+  top: 780px;
+  align-items: center;
+  text-align: center;
+  margin-left: 45%;
+}
+.addbook {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 23px;
+  letter-spacing: 0.1rem;
+  color: #f0f7f4;
+}
+

@@ -1,12 +1,12 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+// import { Route, Routes } from "react-router-dom";
 // import { BookProvider } from "./components/BookContext";
-import BookPage from "./components/BookPageReview/BookPage";
+// import BookPage from "./components/BookPageReview/BookPage";
 // import BookList from "./components/BookStyles/BookList";
-import Footer from "./components/Footer";
-import Header from "./components/header/Header";
-import ReviewsCard from "./components/ReviewsCard";
-import NewBook from "./components/NewBook/NewBookForm"
+// import Footer from "./components/Footer";
+// import Header from "./components/header/Header";
+// import ReviewsCard from "./components/ReviewsCard";
+import NewBook from "./components/NewBook/NewBookForm";
 
 function App() {
   return (
@@ -23,13 +23,13 @@ function App() {
                 <BookList />
               </>
             }
-          /> */}
-          {/* <Route path="/booklist/:id" element={<BookPage/>} /> */}
-        {/* </Routes>
+          /> 
+           <Route path="/booklist/:id" element={<BookPage/>} /> 
+        </Routes>
       </BookProvider>
-     
-      {/* <ReviewsCard /> */}
-      <Footer /> */}
+      <ReviewsCard /> */}
+      <NewBook/>
+      {/* <Footer />  */}
     </div>
   );
 }
