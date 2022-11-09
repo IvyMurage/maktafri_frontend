@@ -10,7 +10,7 @@ function NewBook() {
     published_date: "",
     author: "",
   });
-
+ const formObject = {}
   function handleChange(e) {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
@@ -37,10 +37,17 @@ function NewBook() {
       .then((res) => {
         console.log(res);
       });
+      setData({
+      title: "",
+      category: "",
+      description: "",
+      image_url: "",
+      published_date: "",
+      author: "",})
   }
 
   return (
-    <form className="newform" onSubmit={handleSubmit}>
+      <form className="newform" onSubmit={handleSubmit}>
       <label className="label">
         Title
         <input
@@ -123,6 +130,7 @@ function NewBook() {
           id="description"
           cols="50"
           rows="4"
+          value={data.description}
         ></textarea>
       </label>
       <br />
