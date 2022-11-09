@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faPlus, faUser } from "@fortawesome/free-solid-svg-icons";
 import Logo from "./Logo";
 
+
 function Header() {
   return (
     <StyledHeader>

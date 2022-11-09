@@ -7,11 +7,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
+
+
 function BookPage() {
-  const { bookId } = useContext(BookContext);
+  const { bookId, favorites, addToFavorites, removeFromFavorites } = useContext(BookContext);
   const [book, setBook] = useState([]);
   const [bookReviews, setBookReviews] = useState([]);
   const [bookAuthor, setBookAuthor] = useState({});
+
+
+
+  const favoritesChecker=(id)=>{
+    const boolean = favorites.some((book) => book.id === id);
+    return boolean;
+}
+
 
   useEffect(() => {
     fetch(`http://localhost:9292/books/${bookId}`)
@@ -43,14 +53,15 @@ function BookPage() {
               Review
               <FontAwesomeIcon icon={faPenToSquare} className="btn-icon" />
             </button>
+            {favoritesChecker(book.id) ?
+                <button type="button"  id="favourite-btn"  className="btn btn-primary" onClick={()=>removeFromFavorites(book.id)}>
+                  Remove From Favorites 
+                  <FontAwesomeIcon icon={faHeart} className="btn-icon" /></button> :
             <button
-              type="button"
-              id="favourite-btn"
-              className="btn btn-primary"
-            >
+              type="button"  id="favourite-btn"  className="btn btn-primary" onClick={()=>addToFavorites(book)}>
               Favourite
               <FontAwesomeIcon icon={faHeart} className="btn-icon" />
-            </button>
+            </button>}
           </div>
         </div>
       </div>

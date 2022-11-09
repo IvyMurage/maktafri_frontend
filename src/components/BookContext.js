@@ -10,7 +10,25 @@ function BookProvider({ children }) {
   const [errors, setErrors] = useState([]);
   const [isPending, setIsPending] = useState(true);
   const [search, setSearch] = useState("");
-  const [bookId, setBookId] = useState(1);
+  const [bookId, setBookId] = useState(null);
+
+  const [favorites, setFavorites] = useState([]);
+
+  function addToFavorites(book){
+    const oldFavorites = [...favorites];
+    const newFavorites = oldFavorites.concat(book);
+    setFavorites((prevFavorites)=> prevFavorites= newFavorites);
+
+    console.log(favorites);
+    console.log(book);
+    console.log(newFavorites);
+  };
+
+  const removeFromFavorites = (id) => {
+    const oldFavorites = [...favorites];
+    const newFavorites = oldFavorites.filter((book) => book.id !== id);
+    setFavorites(newFavorites);
+  };
 
   useEffect(() => {
     fetch(`${apiUrl}`)
@@ -43,6 +61,9 @@ function BookProvider({ children }) {
     search,
     handleOnClickBook,
     onHandleSearchChange,
+    favorites,
+    addToFavorites,
+    removeFromFavorites,
   };
 
   return (
