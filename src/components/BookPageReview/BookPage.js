@@ -5,7 +5,7 @@ import ReviewsCard from "../ReviewsCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-
+import BookReviewForm from "./BookReviewForm";
 function BookPage() {
   const { bookId, favorites, addToFavorites, removeFromFavorites } =
     useContext(BookContext);
@@ -26,8 +26,11 @@ function BookPage() {
         setBookReviews(data.reviews);
         setBookAuthor(data.author);
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   }, [bookId]);
+
+  // console.log(bookReviews[0].user_id)
+  // console.log(bookReviews.reviews.user_id)
 
   return (
     <>
@@ -38,7 +41,7 @@ function BookPage() {
         <div id="book-body">
           <h2> {book.title} </h2>
           <h4>
-            By: {bookAuthor.first_name} {bookAuthor.last_name}
+            By: {bookAuthor.name}
           </h4>
           <h4>Category: {book.category}</h4>
           <p>{book.description}</p>
@@ -79,9 +82,15 @@ function BookPage() {
             key={review.id}
             starRating={review.star_rating}
             comments={review.comment}
+            // user={review.user}
           />
         ))}
       </div>
+      {
+        <div className="review-form">
+          <BookReviewForm setBookReviews={setBookReviews} />
+        </div>
+      }
     </>
   );
 }

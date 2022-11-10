@@ -3,7 +3,7 @@
     --mint-cream: #f0f7f4;
     --goldenRod: #e6af2e;
     --kobe: #95290b;
-  }
+}
 
 
 .book-row {
@@ -69,8 +69,6 @@
     border-radius: 15px 0px 0px 15px;
 }
 
-
-
 .book-buttons{
     display:flex;
     width: 100%;
@@ -78,7 +76,6 @@
 }
 
 #review-btn{
-    
     padding: 10px 35px;
     color: white;
     background: #95290B;
@@ -92,7 +89,6 @@
     padding-left:10px;
 }
 
-
 #favourite-btn{
     padding: 10px 30px;
     color: white;
@@ -102,7 +98,6 @@
     border-color: none;
     font-weight: 600;
 }
-
 
 .reviews-comp{
     margin: 100px;

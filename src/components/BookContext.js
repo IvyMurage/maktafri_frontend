@@ -63,6 +63,7 @@ function BookProvider({ children }) {
     favorites,
     addToFavorites,
     removeFromFavorites,
+    setBooks
   };
 
   return (
