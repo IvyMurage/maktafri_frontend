@@ -28,8 +28,6 @@ function BookProvider({ children }) {
     const newFavorites = oldFavorites.concat(book);
     setFavorites(newFavorites);
     localStorage.setItem("favourites", JSON.stringify(newFavorites));
-
-    console.log(newFavorites);
   }
 
   const removeFromFavorites = (id) => {

@@ -18,7 +18,7 @@ function Footer() {
           <FontAwesomeIcon className="icon" icon={faInstagram} size="xl" />
           <FontAwesomeIcon className="icon" icon={faTwitter} size="xl" />
         </div>
-        <div className="copy"> Copyright & copy; 2022 </div> <Logo />
+        <div className="copy"> Copyright &copy; 2022 </div> <Logo />
       </div>
       <div className="copym">Copyright &copy; {date}</div>
     </StyledFooter>

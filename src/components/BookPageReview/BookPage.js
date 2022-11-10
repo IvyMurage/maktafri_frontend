@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BookContext } from "../BookContext";
 import "./BookPage.css";
 import ReviewsCard from "../ReviewsCard";
@@ -13,7 +13,6 @@ function BookPage() {
   const [book, setBook] = useState([]);
   const [bookReviews, setBookReviews] = useState([]);
   const [bookAuthor, setBookAuthor] = useState({});
-  const ref = useRef(null);
 
   const favoritesChecker = (id) => {
     const boolean = favorites.some((book) => book.id === id);
@@ -31,10 +30,6 @@ function BookPage() {
       .catch((err) => console.log(err));
   }, [bookId]);
 
-  function handleSubmit() {
-    ref.current?.scrollIntoView({ behavior: "smooth" });
-  }
-  console.log(bookReviews[0]);
   return (
     <>
       <div className="book-row">
@@ -47,15 +42,10 @@ function BookPage() {
           <h4>Category: {book.category}</h4>
           <p>{book.description}</p>
           <div className="book-buttons">
-            <button
-              onClick={handleSubmit}
-              type="button"
-              id="review-btn"
-              className="btn btn-primary"
-            >
+            <a href="#review-form" id="review-btn" className="btn btn-primary">
               Review
               <FontAwesomeIcon icon={faPenToSquare} className="btn-icon" />
-            </button>
+            </a>
             {favoritesChecker(book.id) ? (
               <button
                 type="button"
@@ -94,7 +84,7 @@ function BookPage() {
         ))}
       </div>
       {
-        <div ref={ref} className="review-form">
+        <div id="review-form" className="review-form">
           <BookReviewForm setBookReviews={setBookReviews} />
         </div>
       }

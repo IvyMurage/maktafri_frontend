@@ -43,7 +43,7 @@ function BookReviewForm({ setBookReviews }) {
   return (
     <React.Fragment>
       <div className="title">Add Review</div>
-      <form className="form-group" onSubmit={handleSubmit}>
+      <form className="form-group" onSubmit={handleSubmit} >
         <label className="">Username</label>
         <input
           onChange={handleChange}
