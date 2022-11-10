@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { BookContext } from "../BookContext";
 import "./NewBook.css";
 
 function NewBook() {
+  const { updateBook } = useContext(BookContext);
+  const navigate = useNavigate();
   const [data, setData] = useState({
     title: "",
     category: "",
@@ -10,12 +14,11 @@ function NewBook() {
     published_date: "",
     author: "",
   });
- const formObject = {}
+  //  const formObject = {}
   function handleChange(e) {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setData(newdata);
-    // console.log(newdata)
   }
   function handleSubmit(e) {
     e.preventDefault();
@@ -31,23 +34,25 @@ function NewBook() {
         description: data.description,
       }),
     })
-      .then((res) => {
-        res.json();
-      })
-      .then((res) => {
-        console.log(res);
+      .then((res) => res.json())
+      .then((book) => {
+        updateBook(book);
+        console.log(book);
       });
-      setData({
+
+    setData({
       title: "",
       category: "",
       description: "",
       image_url: "",
       published_date: "",
-      author: "",})
+      author: "",
+    });
+    navigate("/");
   }
 
   return (
-      <form className="newform" onSubmit={handleSubmit}>
+    <form className="newform" onSubmit={handleSubmit}>
       <label className="label">
         Title
         <input
@@ -125,6 +130,7 @@ function NewBook() {
       <label className="label">
         Description
         <textarea
+          className="addbook-area"
           onChange={(e) => handleChange(e)}
           name="description"
           id="description"
@@ -135,7 +141,9 @@ function NewBook() {
       </label>
       <br />
       <br />
-      <button id="button1" className="addbook">Add a Book </button>
+      <button id="button1" className="addbook">
+        Add a Book
+      </button>
     </form>
   );
 }

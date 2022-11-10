@@ -12,7 +12,6 @@ import NewBook from "./components/NewBook/NewBookForm";
 function App() {
   return (
     <div className="App">
-      
       <BookProvider>
         <Header />
 
@@ -26,13 +25,14 @@ function App() {
                 <BookList />
               </>
             }
-          /> 
-           <Route path="/booklist/:id" element={<BookPage/>} /> 
+          />
+          <Route path="/booklist/:id" element={<BookPage />} />
+          <Route path="/favourites" element={<Favorites />} />
+          <Route path="/addBook" element={<NewBook />} />
         </Routes>
       </BookProvider>
-      <ReviewsCard />
-      <NewBook/>
-      <Footer /> 
+      
+      <Footer />
     </div>
   );
 }

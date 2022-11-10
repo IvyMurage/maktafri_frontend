@@ -13,7 +13,7 @@ function HeroSection() {
           for you.
         </p>
 
-        <button className="view-btn">View all</button>
+        <a href="#book-list" className="view-btn">View all</a>
       </div>
       <div className="hero-section-image">
         <img src="./images/415-dbpXVmL.jpg" alt="" />

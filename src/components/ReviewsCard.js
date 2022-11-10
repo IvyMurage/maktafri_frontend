@@ -1,35 +1,33 @@
 import "./ReviewsCard.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-// import {BookContext} from '../components/BookContext';
-// import {useContext} from "react";
+function ReviewsCard({ user, setBookReviews, reviewId, starRating, comments }) {
 
-function ReviewsCard({ starRating, comments }) {
-  // function loadReviews(){
-  //   fetch("http://localhost:9292/reviews")
-  //   .then((response)=> response.json())
-  //   .then((reviews) => setReviews(reviews))
-  // }
-
-  // const [reviews, setReviews] = useState([]);
-  // const {book} = useContext(BookContext)
-  // useEffect(()=> {loadReviews()}, [])
+  function handleDelete(reviewId){
+    fetch(`http://localhost:9292/reviews/${reviewId}`, {
+      method: "DELETE",
+    }).then((res)=> res.json())
+    .then((data)=> setBookReviews(prevState => prevState.filter(review => review.id !== data.id)))
+    .catch((error)=> console.log(error))
+  };
 
   return (
     <div className = "container">
-    <div className="review">
-        
-          <img src="" alt=""/>
-          {/* <h4>Reviewer: {user}</h4> */}
-          <p><b>Review: </b><em>{comments}</em></p>
-          <h5><b>Star Ratings: </b><em>{starRating}</em> </h5>
+      <div className="review">
+        <div className = "name-row">
+          <img className = "pic" src="https://picsum.photos/50/50?random=1" alt="user-pic"/>
+          <h4>{user}</h4>
           <div className="btn-container">
-            <button className="">Update Comment</button>
-            <br></br>
-            <button className="">Delete Comment</button>
+            <button onClick = {()=>handleDelete(reviewId)} className=""><FontAwesomeIcon icon={faTrash} className="btn-ic2" /></button>
           </div>
-        
-      
-    </div>
+        </div>
+        <p><b>Review: </b><em>{comments}</em></p>
+        {[...Array(starRating)].map((n, index) => (
+        <FontAwesomeIcon icon={faStar} className="fa-star" key={index} />
+      ))}
+      </div>
     </div>
   );
 }

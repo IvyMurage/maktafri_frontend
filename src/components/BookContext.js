@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const BookContext = createContext({});
+
 const apiUrl = "http://localhost:9292/books";
 
 function BookProvider({ children }) {
@@ -11,23 +12,30 @@ function BookProvider({ children }) {
   const [isPending, setIsPending] = useState(true);
   const [search, setSearch] = useState("");
   const [bookId, setBookId] = useState(1);
-  const [favorites, setFavorites] = useState([]);
-  const [bookFavourite, setBookFavourites] = useState({})
 
-  function addToFavorites(book) {
-    setBookFavourites(prevState => prevState = book);
-    setFavorites((prevFavorites) => (prevFavorites = [...prevFavorites, bookFavourite]));
-
-    console.log(favorites);
-    console.log(bookFavourite);
+  function updateBook(book) {
+    setBooks((prevBooks) => [...prevBooks, book]);
   }
 
-  function removeFromFavorites(id) {
+  const localFavouritesJson = localStorage.getItem("favourites");
+  const localFavourites = localFavouritesJson
+    ? JSON.parse(localFavouritesJson)
+    : [];
+  const [favorites, setFavorites] = useState(localFavourites);
+
+  function addToFavorites(book) {
+    const oldFavorites = [...favorites];
+    const newFavorites = oldFavorites.concat(book);
+    setFavorites(newFavorites);
+    localStorage.setItem("favourites", JSON.stringify(newFavorites));
+  }
+
+  const removeFromFavorites = (id) => {
     const oldFavorites = [...favorites];
     const newFavorites = oldFavorites.filter((book) => book.id !== id);
     setFavorites(newFavorites);
-  }
-
+    localStorage.setItem("favourites", JSON.stringify(newFavorites));
+  };
 
   useEffect(() => {
     fetch(`${apiUrl}`)
@@ -63,6 +71,7 @@ function BookProvider({ children }) {
     favorites,
     addToFavorites,
     removeFromFavorites,
+    updateBook,
   };
 
   return (

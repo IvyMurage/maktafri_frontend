@@ -1,12 +1,12 @@
-form {
+.newform {
+
   width: 1300px;
-  height: 800px;
-  top: 80px;
-  left: 250px;
   border-radius: 15px;
   box-sizing: border-box;
   border: 1px solid #cecbc5;
-  /* position: absolute; */
+  margin: 0 auto;
+  margin-bottom: 100px;
+  margin-top: 80px;
 }
 .label {
   width: 80px;
@@ -23,12 +23,15 @@ form {
   margin-top: 5%;
   margin-right: 30%;
 }
-input #image_url {
-    width: 100%;
+input > #image_url {
+  width: 100%;
 }
 
-input,
-select {
+#title,
+#category,
+#image_url,
+#author,
+#published_date {
   width: 420px;
   height: 72px;
   left: 162px;
@@ -40,31 +43,25 @@ select {
   padding: 20px;
 }
 select option {
-    font-size: 20px;
-    font-family: "Poppins";
+  font-size: 20px;
+  font-family: "Poppins";
 }
-textarea {
+.addbook-area {
   border-color: #d9d9d9;
   background: #f5f5f5;
   border: 1px solid #d9d9d9;
   border-radius: 10px;
-  padding: 25px;
+  padding: 10px 60px;
 }
 #button1 {
-  width: 300px;
-  height: 68px;
-  left: 614px;
-  top: 771px;
   background: #95290b;
   border-radius: 20px;
-  width: 180px;
-  left: 650px;
-  top: 780px;
   align-items: center;
   text-align: center;
   margin-left: 45%;
   border-style: none;
-  padding: 10px, 30px;
+  padding: 10px 30px;
+  margin-bottom: 50px;
 }
 .addbook {
   font-family: "Poppins";
@@ -72,6 +69,4 @@ textarea {
   font-size: 23px;
   letter-spacing: 0.1rem;
   color: #f0f7f4;
-  
 }
-

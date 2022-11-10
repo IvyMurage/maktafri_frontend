@@ -5,6 +5,7 @@ import ReviewsCard from "../ReviewsCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import BookReviewForm from "./BookReviewForm";
 
 function BookPage() {
   const { bookId, favorites, addToFavorites, removeFromFavorites } =
@@ -26,7 +27,7 @@ function BookPage() {
         setBookReviews(data.reviews);
         setBookAuthor(data.author);
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   }, [bookId]);
 
   return (
@@ -37,16 +38,14 @@ function BookPage() {
         </div>
         <div id="book-body">
           <h2> {book.title} </h2>
-          <h4>
-            By: {bookAuthor.first_name} {bookAuthor.last_name}
-          </h4>
+          <h4>By: {bookAuthor.name}</h4>
           <h4>Category: {book.category}</h4>
           <p>{book.description}</p>
           <div className="book-buttons">
-            <button type="button" id="review-btn" className="btn btn-primary">
+            <a href="#review-form" id="review-btn" className="btn btn-primary">
               Review
               <FontAwesomeIcon icon={faPenToSquare} className="btn-icon" />
-            </button>
+            </a>
             {favoritesChecker(book.id) ? (
               <button
                 type="button"
@@ -79,9 +78,16 @@ function BookPage() {
             key={review.id}
             starRating={review.star_rating}
             comments={review.comment}
+            reviewId={review.id}
+            setBookReviews={setBookReviews}
           />
         ))}
       </div>
+      {
+        <div id="review-form" className="review-form">
+          <BookReviewForm setBookReviews={setBookReviews} />
+        </div>
+      }
     </>
   );
 }
