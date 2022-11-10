@@ -12,11 +12,13 @@ function BookProvider({ children }) {
   const [search, setSearch] = useState("");
   const [bookId, setBookId] = useState(1);
   const [favorites, setFavorites] = useState([]);
-  const [bookFavourite, setBookFavourites] = useState({})
+  const [bookFavourite, setBookFavourites] = useState({});
 
   function addToFavorites(book) {
-    setBookFavourites(prevState => prevState = book);
-    setFavorites((prevFavorites) => (prevFavorites = [...prevFavorites, bookFavourite]));
+    setBookFavourites((prevState) => (prevState = book));
+    setFavorites(
+      (prevFavorites) => (prevFavorites = [...prevFavorites, bookFavourite])
+    );
 
     console.log(favorites);
     console.log(bookFavourite);
@@ -28,6 +30,9 @@ function BookProvider({ children }) {
     setFavorites(newFavorites);
   }
 
+  function updateBook(book) {
+    setBooks((prevBooks) => [...prevBooks, book]);
+  }
 
   useEffect(() => {
     fetch(`${apiUrl}`)
@@ -63,7 +68,7 @@ function BookProvider({ children }) {
     favorites,
     addToFavorites,
     removeFromFavorites,
-    setBooks
+    updateBook,
   };
 
   return (

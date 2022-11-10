@@ -4,7 +4,7 @@ import Search from "../SearchBookForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faPlus, faUser } from "@fortawesome/free-solid-svg-icons";
 import Logo from "./Logo";
-
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -15,9 +15,9 @@ function Header() {
         <div className="links">
           <ul>
             <li>
-              <a href="/add_note">
+              <Link to="/addBook">
                 <FontAwesomeIcon icon={faPlus} size="xl" />
-              </a>
+              </Link>
             </li>
             <li>
               <a href="/favourites">
