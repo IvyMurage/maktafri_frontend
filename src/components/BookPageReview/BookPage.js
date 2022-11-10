@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { BookContext } from "../BookContext";
 import "./BookPage.css";
 import ReviewsCard from "../ReviewsCard";
@@ -12,6 +12,7 @@ function BookPage() {
   const [book, setBook] = useState([]);
   const [bookReviews, setBookReviews] = useState([]);
   const [bookAuthor, setBookAuthor] = useState({});
+  const ref = useRef(null);
 
   useEffect(() => {
     fetch(`http://localhost:9292/books/${bookId}`)
@@ -24,8 +25,13 @@ function BookPage() {
       })
       .catch(console.log);
   }, [bookId]);
+  // console.log(bookReviews)
 
-  // console.log(bookReviews[0].user_id)
+  function handleSubmit(){
+    ref.current?.scrollIntoView({behavior: 'smooth'});
+  }
+
+  // console.log(bookReviews[0].user_name)
   // console.log(bookReviews.reviews.user_id)
 
   return (
@@ -37,12 +43,12 @@ function BookPage() {
         <div id="book-body">
           <h2> {book.title} </h2>
           <h4>
-            By: {bookAuthor.first_name} {bookAuthor.last_name}
+            By: {bookAuthor.name}
           </h4>
           <h4>Category: {book.category}</h4>
           <p>{book.description}</p>
           <div className="book-buttons">
-            <button type="button" id="review-btn" className="btn btn-primary">
+            <button onClick={handleSubmit} type="button" id="review-btn" className="btn btn-primary">
               Review
               <FontAwesomeIcon icon={faPenToSquare} className="btn-icon" />
             </button>
@@ -50,6 +56,7 @@ function BookPage() {
               type="button"
               id="favourite-btn"
               className="btn btn-primary"
+              
             >
               Favourite
               <FontAwesomeIcon icon={faHeart} className="btn-icon" />
@@ -65,12 +72,14 @@ function BookPage() {
             key={review.id}
             starRating={review.star_rating}
             comments={review.comment}
-            // user={review.user}
+            reviewId = {review.id}
+            setBookReviews = {setBookReviews}
+            // user={review.user.user_name}
           />
         ))}
       </div>
       {
-        <div className="review-form">
+        <div ref={ref} className="review-form">
           <BookReviewForm />
         </div>
       }
