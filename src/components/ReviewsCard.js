@@ -1,39 +1,32 @@
 import "./ReviewsCard.css";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-// import {BookContext} from '../components/BookContext';
-// import {useContext} from "react";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-function ReviewsCard({user, starRating, comments }) {
-  // function loadReviews(){
-  //   fetch("http://localhost:9292/reviews")
-  //   .then((response)=> response.json())
-  //   .then((reviews) => setReviews(reviews))
-  // }
+function ReviewsCard({ user, setBookReviews, reviewId, starRating, comments }) {
 
-  // const [reviews, setReviews] = useState([]);
-  // const {book} = useContext(BookContext)
-  // useEffect(()=> {loadReviews()}, [])
-
-  // const bookRating = bookReviews.reduce((acc, review) => acc + review.star_rating, 0);
-  // const star_rating = Math.ceil(bookRating);
+  function handleDelete(reviewId){
+    fetch(`http://localhost:9292/reviews/${reviewId}`, {
+      method: "DELETE",
+    }).then((res)=> res.json())
+    .then((data)=> setBookReviews(prevState => prevState.filter(review => review.id !== data.id)))
+    .catch((error)=> console.log(error))
+  };
 
   return (
     <div className = "container">
       <div className="review">
         <div className = "name-row">
-          <img className = "pic" src="https://via.placeholder.com/50" alt="user-pic"/>
-          <h4>John Doe</h4>
+          <img className = "pic" src="https://picsum.photos/50/50?random=1" alt="user-pic"/>
+          <h4>{user}</h4>
           <div className="btn-container">
-            <button type = "button"className=""><FontAwesomeIcon icon={faPenToSquare} className="btn-ic1" /></button>
-            <button className=""><FontAwesomeIcon icon={faTrash} className="btn-ic2" /></button>
+            <button onClick = {()=>handleDelete(reviewId)} className=""><FontAwesomeIcon icon={faTrash} className="btn-ic2" /></button>
           </div>
         </div>
-        
-        
         <p><b>Review: </b><em>{comments}</em></p>
-        <h5><b>Star Ratings: </b><em>{starRating}</em> </h5>
+        {[...Array(starRating)].map((n, index) => (
+        <FontAwesomeIcon icon={faStar} className="fa-star" key={index} />
+      ))}
       </div>
     </div>
   );

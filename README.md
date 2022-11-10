@@ -21,8 +21,11 @@ To run this project, one must have either of the following;
     * Run __"npm start"__ command in the terminal to get the React App running.
 ### Known Bugs
 ### Future Updates
+1. Add update functionality to the Reviews card to allow users update their reviews on particular books.
+
 ### Copyright and License (MIT)
 #### Copyright <2022>
+
 ### Contact
 ### Live Heroku Page Link
 # MaktAfri by Ivy Murage, Brian Kipkoech, Rachel Muriithi, Nelson Mutinda and Francis Muriithi

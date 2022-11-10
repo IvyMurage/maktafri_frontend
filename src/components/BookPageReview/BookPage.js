@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { BookContext } from "../BookContext";
 import "./BookPage.css";
 import ReviewsCard from "../ReviewsCard";
@@ -6,12 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import BookReviewForm from "./BookReviewForm";
+
 function BookPage() {
   const { bookId, favorites, addToFavorites, removeFromFavorites } =
     useContext(BookContext);
   const [book, setBook] = useState([]);
   const [bookReviews, setBookReviews] = useState([]);
   const [bookAuthor, setBookAuthor] = useState({});
+  const ref = useRef(null);
 
   const favoritesChecker = (id) => {
     const boolean = favorites.some((book) => book.id === id);
@@ -29,9 +31,10 @@ function BookPage() {
       .catch((err) => console.log(err));
   }, [bookId]);
 
-  // console.log(bookReviews[0].user_id)
-  // console.log(bookReviews.reviews.user_id)
-
+  function handleSubmit() {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  }
+  console.log(bookReviews[0]);
   return (
     <>
       <div className="book-row">
@@ -40,13 +43,16 @@ function BookPage() {
         </div>
         <div id="book-body">
           <h2> {book.title} </h2>
-          <h4>
-            By: {bookAuthor.name}
-          </h4>
+          <h4>By: {bookAuthor.name}</h4>
           <h4>Category: {book.category}</h4>
           <p>{book.description}</p>
           <div className="book-buttons">
-            <button type="button" id="review-btn" className="btn btn-primary">
+            <button
+              onClick={handleSubmit}
+              type="button"
+              id="review-btn"
+              className="btn btn-primary"
+            >
               Review
               <FontAwesomeIcon icon={faPenToSquare} className="btn-icon" />
             </button>
@@ -82,12 +88,13 @@ function BookPage() {
             key={review.id}
             starRating={review.star_rating}
             comments={review.comment}
-            // user={review.user}
+            reviewId={review.id}
+            setBookReviews={setBookReviews}
           />
         ))}
       </div>
       {
-        <div className="review-form">
+        <div ref={ref} className="review-form">
           <BookReviewForm setBookReviews={setBookReviews} />
         </div>
       }
