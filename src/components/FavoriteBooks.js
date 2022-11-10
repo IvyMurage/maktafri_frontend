@@ -1,58 +1,66 @@
 import React, { useContext } from "react";
-import "../App";
+import "./FavoriteBooks.css";
 import { BookContext } from "./BookContext";
+import BookCard from "./BookStyles/BookCard";
 
 function Favorites() {
-  const {favorites, addToFavorites, removeFromFavorites } =
+  const { favorites, addToFavorites, removeFromFavorites } =
     useContext(BookContext);
 
-  console.log("Favorite Books: ", favorites);
 
-  function favoritesChecker(id) {
+  const favoritesChecker = (id) => {
     const boolean = favorites.some((book) => book.id === id);
     return boolean;
-  }
+  };
 
   return (
-    <div className="favorites">
-      
-      {favorites.length > 0 ? (
-        favorites.map((book) => (
-          <div key={book.id} className="book">
-            <h2> {book.title} </h2> <h3> Written by: {book.authors} </h3>
-            <div>
-              <img src={book.image_url} alt="#">
-                
-              </img>
+    <>
+      <h1>Favorite Reads</h1>
+      <div className="favorites-container">
+        <div className="favorites">
+          {favorites.length > 0 ? (
+            favorites.map((book) => (
+              <div key={book.id}>
+                <BookCard
+                  bookImage={book.image_url}
+                  bookTitle={book.title}
+                  bookCategory={book.category}
+                  bookAuthor={book.author.name}
+                  book={book}
+                />
+                <>
+                  <div className="button-section">
+                    {favoritesChecker(book.id) ? (
+                      <button
+                        type="button"
+                        id="favourite-btn"
+                        className="btn btn-primary"
+                        onClick={() => removeFromFavorites(book.id)}
+                      >
+                        Remove From Favorites
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        id="favourite-btn"
+                        className="btn btn-primary"
+                        onClick={() => addToFavorites(book)}
+                      >
+                        Favorites
+                      </button>
+                    )}
+                  </div>
+                </>
+              </div>
+            ))
+          ) : (
+            <div className="msg">
+              <h3>You Do not Have any Favorite Reads Yet</h3>
             </div>
-            <div>
-              
-              {favoritesChecker(book.id) ? (
-                <button
-                  type="button"
-                  id="favourite-btn"
-                  className="btn btn-primary"
-                  onClick={() => removeFromFavorites(book.id)}
-                >
-                  Remove From Favorites
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  id="favourite-btn"
-                  className="btn btn-primary"
-                  onClick={() => addToFavorites(book)}
-                >
-                  Favorites
-                </button>
-              )}
-            </div>
-          </div>
-        ))
-      ) : (
-        <h1> You Do not Have any Favorite Books Yet </h1>
-      )}
-    </div>
+          )}
+        </div>
+      </div>
+    </>
   );
 }
 

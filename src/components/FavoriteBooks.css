@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap");
+:root {
+  --mint-cream: #f0f7f4;
+  --goldenRod: #e6af2e;
+  --kobe: #95290b;
+}
+
+.favorites {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  margin: 30px;
+  grid-gap: 30px;
+  padding: 10px 10px 10px 10px;
+}
+
+h1{
+    text-align: center;
+    color: #95290b;
+    font-weight: bolder;
+}
+h3{
+    text-align: center;
+    color: #3c3533;
+    font-weight: bolder;
+}
+.favorites-container{
+    background-color: #f0f7f4;
+}

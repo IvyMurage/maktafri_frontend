@@ -1,47 +1,54 @@
-
 :root {
-    --mint-cream: #f0f7f4;
-    --goldenRod: #e6af2e;
-    --kobe: #95290b;
+  --mint-cream: #f0f7f4;
+  --goldenRod: #e6af2e;
+  --kobe: #95290b;
 }
-
 
 .form-group {
-    padding: 10px;
-    border-radius: 15px;
-    box-sizing: border-box;
-    background: #f0f7f4;
-    border: 1px solid #cecbc5;
-    width:80%;
-    margin-inline: auto;
-} 
+  padding: 10px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  background: #f0f7f4;
+  border: 1px solid #cecbc5;
+  width: 80%;
+  margin-inline: auto;
+}
 
 #messageButton {
-    padding: 10px 40px;
-    border-style: none;
-    background: #95290b;
-    color: white;
-    font-weight: 600;
-    border-radius: 10px;
-    margin: 20px auto;
-    display: block;
-} 
-
+  padding: 10px 40px;
+  border-style: none;
+  background: #95290b;
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  margin: 20px auto;
+  display: block;
+}
 
 .title {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 500;
-    line-height: 34px;
-    color: #95290b;
-    margin-bottom: 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 34px;
+  color: #95290b;
+  margin-bottom: 20px;
 }
 
-.form-control{
-    padding: 0px 10px;
+.form-control {
+  padding: 0px 10px;
 }
 
-.form-group{
-    padding: 20px;
+.form-group {
+  padding: 20px;
 }
 
+@media screen and (max-width: 800px) {
+  .form-group {
+    width: 100%;
+    border: none;
+  }
+
+  .title{
+    margin-top: 30px;
+  }
+}

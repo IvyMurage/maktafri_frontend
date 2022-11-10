@@ -10,7 +10,9 @@ function Header() {
   return (
     <StyledHeader>
       <nav>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         <Search />
         <div className="links">
           <ul>
@@ -48,6 +50,7 @@ const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     margin-inline: auto;
+    a {text-decoration: none}
     h1,
     span {
       color: #000;
@@ -75,14 +78,21 @@ const StyledHeader = styled.header`
           border-radius: 50%;
           a {
             color: #d9d9d9;
+            text-decoration: none;
+            &:hover {
+              text-decoration: none;
+            }
           }
         }
       }
     }
   }
+  
   .logo {
     display: flex;
+
   }
+
   @media (max-width: 576px) {
     nav {
       width: 95%;
