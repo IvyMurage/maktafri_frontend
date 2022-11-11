@@ -56,5 +56,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 3. [Rachel Muriithi](https://github.com/RachaelMuriithi)
 4. [Nelson Mutinda](https://github.com/nelsonmutindamwanzia)
 5. [Francis Muriithi](https://github.com/Francis-Muriithi)
-### Live Heroku Page Link
+### Live Netlify Page Link
+[Live Frontend](https://maktafri.netlify.app/)
 # MaktAfri by Ivy Murage, Brian Kipkoech, Rachel Muriithi, Nelson Mutinda, and Francis Muriithi
