@@ -4,54 +4,53 @@
   --kobe: #95290b;
 }
 
-h2{
-    text-align: center;
+h2 {
+  text-align: center;
 }
 
-.container{
+.container {
   margin-top: 10px;
 }
 
-.review{
-    padding: 20px 10px;
-    border-style: none;
-    border-radius: 20px;
-    background-color: #FBF5F3;
+.review {
+  padding: 20px 10px;
+  border-style: none;
+  border-radius: 20px;
+  background-color: #fbf5f3;
 }
 
-  .btn-container button{
-    background: transparent;
-    border: none;
-  }
+.btn-container button {
+  background: transparent;
+  border: none;
+}
 
-  .name-row{
-    display: flex;
-    justify-content: space-between;
-  }
+.name-row {
+  display: flex;
+  justify-content: space-between;
+}
 
-  .name-row h4{
-    font-size: 16px;
-    line-height: 24px;
-    margin-left: -880px;
-    margin-top: 23px;
-  }
+.name-row h4 {
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: -880px;
+  margin-top: 23px;
+}
 
-  .btn-ic1{
-    color: var(--goldenRod);
-    padding-left:10px;
-    font-size: 16px;
-  }
+.btn-ic1 {
+  color: var(--goldenRod);
+  padding-left: 10px;
+  font-size: 16px;
+}
 
-  .btn-ic2{
-    color: var(--kobe);
-    padding-left:10px;
-    font-size: 16px;
-  }
+.btn-ic2 {
+  color: var(--kobe);
+  padding-left: 10px;
+  font-size: 16px;
+}
 
-  .pic{
-    object-fit: cover;
-    border-radius: 50%;
-    padding: 10px;
-    margin-top: auto;
-  }
-
+.pic {
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 10px;
+  margin-top: auto;
+}

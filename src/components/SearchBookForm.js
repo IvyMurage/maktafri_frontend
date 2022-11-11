@@ -8,7 +8,12 @@ function Search() {
   const { onHandleSearchChange, search } = useContext(BookContext);
   return (
     <StyledForm action="/">
-      <input type="search" placeholder="Search by title" value={search} onChange={onHandleSearchChange}></input>
+      <input
+        type="search"
+        placeholder="Search by title"
+        value={search}
+        onChange={onHandleSearchChange}
+      ></input>
 
       <FontAwesomeIcon icon={faSearch} />
     </StyledForm>

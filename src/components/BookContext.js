@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const BookContext = createContext({});
 
-const apiUrl = "http://localhost:9292/books";
+const apiUrl = "https://maktafri-api.herokuapp.com/books";
 
 function BookProvider({ children }) {
   const navigate = useNavigate();

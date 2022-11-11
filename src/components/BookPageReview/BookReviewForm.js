@@ -12,7 +12,7 @@ function BookReviewForm({ setBookReviews }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch("http://localhost:9292/reviews", {
+    fetch("https://maktafri-api.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -68,7 +68,7 @@ const StyledFooter = styled.footer`
   @media (max-width: 576px) {
     display: flex;
     flex-direction: column;
-    height:100px;
+    height: 100px;
     .footer {
       width: 95%;
     }

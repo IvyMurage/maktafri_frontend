@@ -20,7 +20,7 @@ function BookPage() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:9292/books/${bookId}`)
+    fetch(`https://maktafri-api.herokuapp.com/books/${bookId}`)
       .then((response) => response.json())
       .then((data) => {
         setBook(data);

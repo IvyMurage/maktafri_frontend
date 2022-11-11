@@ -7,7 +7,6 @@ function Favorites() {
   const { favorites, addToFavorites, removeFromFavorites } =
     useContext(BookContext);
 
-
   const favoritesChecker = (id) => {
     const boolean = favorites.some((book) => book.id === id);
     return boolean;
