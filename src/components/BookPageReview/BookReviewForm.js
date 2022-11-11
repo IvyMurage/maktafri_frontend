@@ -43,7 +43,7 @@ function BookReviewForm({ setBookReviews }) {
   return (
     <React.Fragment>
       <div className="title">Add Review</div>
-      <form className="form-group" onSubmit={handleSubmit} >
+      <form className="form-group" onSubmit={handleSubmit}>
         <label className="">Username</label>
         <input
           onChange={handleChange}
@@ -67,6 +67,8 @@ function BookReviewForm({ setBookReviews }) {
         <label className="">Star Rating</label>
         <input
           onChange={handleChange}
+          min="1"
+          max="5"
           value={review.star_rating}
           type="number"
           className="form-control"

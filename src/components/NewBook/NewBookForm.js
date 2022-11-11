@@ -22,7 +22,7 @@ function NewBook() {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:9292/books", {
+    fetch("https://maktafri-api.herokuapp.com/books", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
