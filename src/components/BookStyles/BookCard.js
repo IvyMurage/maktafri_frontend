@@ -1,5 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import { BookContext } from "../BookContext";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function BookCard({ bookImage, bookTitle, bookAuthor, bookCategory, book }) {
   const { handleOnClickBook } = useContext(BookContext);
@@ -9,6 +11,7 @@ function BookCard({ bookImage, bookTitle, bookAuthor, bookCategory, book }) {
       <h4> {bookTitle}</h4>
       <p>{bookCategory}</p>
       <p>{bookAuthor}</p>
+      <FontAwesomeIcon icon={faTrash} />
     </div>
   );
 }
