@@ -11,7 +11,7 @@ function BookCard({ bookImage, bookTitle, bookAuthor, bookCategory, book }) {
       <h4> {bookTitle}</h4>
       <p>{bookCategory}</p>
       <p>{bookAuthor}</p>
-      <FontAwesomeIcon icon={faTrash} />
+     <button className="delete-btn"><FontAwesomeIcon icon={faTrash}/></button> 
     </div>
   );
 }
