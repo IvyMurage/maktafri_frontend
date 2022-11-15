@@ -1,0 +1,70 @@
+:root {
+  --mint-cream: #f0f7f4;
+  --goldenRod: #e6af2e;
+  --kobe: #95290b;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit-form {
+  position: relative;
+  border: 1px solid #dbdcdc;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 800px;
+  padding: 10px;
+  background-color: var(--mint-cream);
+  margin-bottom: 50px;
+}
+
+.form-section-1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-update {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border-style: none;
+  margin: 10px;
+}
+
+.update-label {
+  margin: 10px;
+  color: var(--goldenRod);
+}
+
+.update-btn {
+  padding: 10px 20px;
+  border-style: none;
+  background-color: var(--kobe);
+  color: var(--mint-cream);
+  font-weight: 600;
+  border-radius: 10px;
+  display: block;
+}
+
+.update-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+#description-update {
+  /* padding:50px 80px; */
+  height: 100px;
+}
+
+#image-update,
+#description-update {
+  width: 80%;
+}

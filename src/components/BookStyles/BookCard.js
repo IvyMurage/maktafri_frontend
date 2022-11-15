@@ -5,7 +5,8 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 function BookCard({ bookImage, bookTitle, bookAuthor, bookCategory, book }) {
-  const { handleOnClickBook, handleDeleteBook } = useContext(BookContext);
+  const { handleOnClickBook, handleDeleteBook, handleUpdateBook } =
+    useContext(BookContext);
   return (
     <div className="book-card">
       <img
@@ -17,7 +18,9 @@ function BookCard({ bookImage, bookTitle, bookAuthor, bookCategory, book }) {
       <p>{bookCategory}</p>
       <p>{bookAuthor}</p>
       <div className="action-btn">
-        <FontAwesomeIcon className="edit-btn" icon={faPenToSquare} />
+        <button className="edit-btn" onClick={() => handleUpdateBook(book)}>
+          <FontAwesomeIcon icon={faPenToSquare} />
+        </button>
         <button className="delete-btn" onClick={() => handleDeleteBook(book)}>
           <FontAwesomeIcon icon={faTrash} />
         </button>

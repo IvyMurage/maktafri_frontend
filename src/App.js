@@ -14,15 +14,13 @@ function App() {
     <div className="App">
       <BookProvider>
         <Header />
-
         <Routes>
           <Route
             path="/"
             element={
               <>
                 <HeroSection />
-                <h3 id="bookList-heading">Popular Now</h3>
-                <BookList />
+                <h3 id="bookList-heading"> Popular Now </h3> <BookList />
               </>
             }
           />
@@ -31,7 +29,6 @@ function App() {
           <Route path="/addBook" element={<NewBook />} />
         </Routes>
       </BookProvider>
-
       <Footer />
     </div>
   );

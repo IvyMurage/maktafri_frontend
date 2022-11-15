@@ -12,6 +12,7 @@ function BookProvider({ children }) {
   const [isPending, setIsPending] = useState(true);
   const [search, setSearch] = useState("");
   const [bookId, setBookId] = useState(1);
+  const [trigger, setTrigger] = useState(false);
 
   function updateBook(book) {
     setBooks((prevBooks) => [...prevBooks, { ...book }]);
@@ -69,6 +70,17 @@ function BookProvider({ children }) {
     );
   }
 
+  function handleUpdateBook(book) {
+    console.log("This book has been updated");
+    setTrigger(true);
+    console.log(trigger);
+  }
+
+  function handleCancelUpdate() {
+    console.log("This update has been canceled");
+    setTrigger((prevTrigger) => (prevTrigger = false));
+  }
+
   const bookItems = books.filter((book) => book.title.includes(search));
 
   const value = {
@@ -77,13 +89,16 @@ function BookProvider({ children }) {
     errors,
     isPending,
     search,
+    favorites,
+    trigger,
     handleOnClickBook,
     onHandleSearchChange,
-    favorites,
     addToFavorites,
     removeFromFavorites,
     updateBook,
     handleDeleteBook,
+    handleUpdateBook,
+    handleCancelUpdate,
   };
 
   return (
