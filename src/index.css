@@ -127,16 +127,30 @@ body {
   padding: 5px 10px 5px 10px;
 }
 
-.delete-btn {
+.delete-btn,
+.edit-btn {
   float: right;
   clear: both;
   margin-right: 10px;
   margin-bottom: 10px;
   border-style: none;
-  padding: 5px 10px;
+
   border-radius: 50%;
   background-color: var(--mint-cream);
-  color:var(--kobe)
+  color: var(--kobe);
+}
+
+.action-btn {
+  display: flex;
+  justify-content: space-between;
+}
+.edit-btn {
+  margin-left: 10px;
+  padding: 10px 10px;
+}
+
+.delete-btn {
+  padding: 5px 10px;
 }
 
 .book-card > img {

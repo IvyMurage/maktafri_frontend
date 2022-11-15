@@ -14,7 +14,7 @@ function BookProvider({ children }) {
   const [bookId, setBookId] = useState(1);
 
   function updateBook(book) {
-    setBooks((prevBooks) => [...prevBooks, book]);
+    setBooks((prevBooks) => [...prevBooks, { ...book }]);
   }
 
   const localFavouritesJson = localStorage.getItem("favourites");
@@ -58,6 +58,17 @@ function BookProvider({ children }) {
     setSearch(value);
   }
 
+  function handleDeleteBook(bookToDelete) {
+    fetch(`${apiUrl}/${bookToDelete.id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => {});
+    setBooks((prevBooks) =>
+      prevBooks.filter((book) => book.id !== bookToDelete.id)
+    );
+  }
+
   const bookItems = books.filter((book) => book.title.includes(search));
 
   const value = {
@@ -72,6 +83,7 @@ function BookProvider({ children }) {
     addToFavorites,
     removeFromFavorites,
     updateBook,
+    handleDeleteBook,
   };
 
   return (

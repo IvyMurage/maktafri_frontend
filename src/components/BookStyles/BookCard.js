@@ -2,16 +2,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import { BookContext } from "../BookContext";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 function BookCard({ bookImage, bookTitle, bookAuthor, bookCategory, book }) {
-  const { handleOnClickBook } = useContext(BookContext);
+  const { handleOnClickBook, handleDeleteBook } = useContext(BookContext);
   return (
-    <div className="book-card" onClick={() => handleOnClickBook(book)}>
-      <img src={bookImage} alt={bookTitle} />
+    <div className="book-card">
+      <img
+        src={bookImage}
+        alt={bookTitle}
+        onClick={() => handleOnClickBook(book)}
+      />
       <h4> {bookTitle}</h4>
       <p>{bookCategory}</p>
       <p>{bookAuthor}</p>
-     <button className="delete-btn"><FontAwesomeIcon icon={faTrash}/></button> 
+      <div className="action-btn">
+        <FontAwesomeIcon className="edit-btn" icon={faPenToSquare} />
+        <button className="delete-btn" onClick={() => handleDeleteBook(book)}>
+          <FontAwesomeIcon icon={faTrash} />
+        </button>
+      </div>
     </div>
   );
 }
