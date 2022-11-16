@@ -13,6 +13,14 @@ function BookProvider({ children }) {
   const [search, setSearch] = useState("");
   const [bookId, setBookId] = useState(1);
   const [trigger, setTrigger] = useState(false);
+  const [book, setBook] = useState({
+    title: "Purple Hibiscus",
+    category: "Crime",
+    description: "",
+    image_url: "",
+    author: "",
+    published_date: "",
+  });
 
   function updateBook(book) {
     setBooks((prevBooks) => [...prevBooks, { ...book }]);
@@ -71,14 +79,42 @@ function BookProvider({ children }) {
   }
 
   function handleUpdateBook(book) {
-    console.log("This book has been updated");
+    setBookId(book.id);
     setTrigger(true);
-    console.log(trigger);
+    console.log(bookId);
   }
 
   function handleCancelUpdate() {
     console.log("This update has been canceled");
     setTrigger((prevTrigger) => (prevTrigger = false));
+  }
+
+  function handleOnChangeUpdate(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    setBook({ ...book, [name]: value });
+  }
+
+  function handleOnSubmitUpdate(event) {
+    event.preventDefault();
+    console.log(book);
+    fetch(`${apiUrl}/${bookId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(),
+    })
+    .then(res => res.json())
+    .then(book => console.log(book))
+
+    console.log("This change has been made");
+    setBook({
+      title: "Purple Hibiscus",
+      category: "Crime",
+      description: "",
+      image_url: "",
+      author: "",
+      published_date: "",
+    });
   }
 
   const bookItems = books.filter((book) => book.title.includes(search));
@@ -91,6 +127,7 @@ function BookProvider({ children }) {
     search,
     favorites,
     trigger,
+    book,
     handleOnClickBook,
     onHandleSearchChange,
     addToFavorites,
@@ -99,6 +136,8 @@ function BookProvider({ children }) {
     handleDeleteBook,
     handleUpdateBook,
     handleCancelUpdate,
+    handleOnChangeUpdate,
+    handleOnSubmitUpdate,
   };
 
   return (

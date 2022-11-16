@@ -16,6 +16,7 @@
   align-items: center;
 }
 .edit-form {
+  font-size: 14px;
   position: relative;
   border: 1px solid #dbdcdc;
   border-radius: 10px;
